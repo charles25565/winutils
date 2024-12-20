@@ -2,7 +2,7 @@
 
 Version 2.0.0
 
-© \<holder\> \<year\>
+© Charles 2024
 
 Usage of the works is permitted provided that this
 instrument and the above attribution is retained 
