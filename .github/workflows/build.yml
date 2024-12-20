@@ -1,0 +1,32 @@
+name: Build
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 1 */6 *'
+
+jobs:
+  build:
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@v4
+      - run: git config --global core.autocrlf input
+      - uses: cygwin/cygwin-install-action@master
+        with:
+          packages: gcc-core binutils make
+      - name: Clone
+        run: 'git clone git://git.suckless.org/sbase'
+      - name: Build
+        run: |
+          pushd sbase
+          make -j5
+          copy C:\cygwin\bin\cygwin1.dll .
+          popd
+      - uses: softprops/action-gh-release@v2
+        with:
+          name: Continuous
+          tag_name: continuous
+          files: |
+            sbase/cygwin1.dll
+            sbase/*.exe
