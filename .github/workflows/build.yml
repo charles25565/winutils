@@ -16,7 +16,7 @@ jobs:
         with:
           packages: gcc-core binutils make
       - name: Clone
-        run: 'git clone git://git.suckless.org/sbase'
+        run: git clone git://git.suckless.org/sbase
       - name: Build
         run: |
           pushd sbase
