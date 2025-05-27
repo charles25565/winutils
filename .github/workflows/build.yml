@@ -14,8 +14,7 @@ jobs:
       - uses: cygwin/cygwin-install-action@master
         with:
           packages: gcc-core binutils make
-      - name: Clone
-        run: git clone --depth=1 --single-branch --branch=master git://git.suckless.org/sbase
+      - run: git clone --depth=1 --single-branch --branch=master git://git.suckless.org/sbase
       - name: Build
         run: |
           pushd sbase
