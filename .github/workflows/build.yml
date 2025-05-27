@@ -11,9 +11,10 @@ jobs:
     runs-on: windows-2019
     steps:
       - run: git config --global core.autocrlf input
-      - uses: cygwin/cygwin-install-action@master
+      - uses: cygwin/cygwin-install-action@v5
         with:
           packages: gcc-core binutils make
+          site: https://mirrors.rit.edu/cygwin/
       - run: git clone --depth=1 --single-branch --branch=master git://git.suckless.org/sbase
       - name: Build
         run: |
