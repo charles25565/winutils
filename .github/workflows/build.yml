@@ -14,7 +14,7 @@ jobs:
       - uses: cygwin/cygwin-install-action@v5
         with:
           packages: gcc-core binutils make
-          site: https://mirrors.rit.edu/cygwin/
+          site: https://mirror.cs.vt.edu/pub/cygwin/cygwin/
       - run: git clone --depth=1 --single-branch --branch=master git://git.suckless.org/sbase
       - name: Build
         run: |
